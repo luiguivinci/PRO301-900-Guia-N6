@@ -1,12 +1,14 @@
-function getEvenOddArrayValue(arrayEvaluado = new Array()) {
-  if (arrayEvaluado.length > 1) {
+function getEvenOddArrayValue(arrayEvaluado = "") {
+  if (arrayEvaluado !== "") {
+    let arraytratado = arrayEvaluado.split(",");
+    arraytratado = arraytratado.map((str) => parseInt(str));
     let pares = new Array();
     let impares = new Array();
-    for (let i = 0; i < arrayEvaluado.length; i++) {
-      if (arrayEvaluado[i] % 2 === 0) {
-        pares.push(arrayEvaluado[i]);
+    for (let i = 0; i < arraytratado.length; i++) {
+      if (arraytratado[i] % 2 === 0) {
+        pares.push(arraytratado[i]);
       } else {
-        impares.push(arrayEvaluado[i]);
+        impares.push(arraytratado[i]);
       }
     }
 
@@ -17,9 +19,8 @@ function getEvenOddArrayValue(arrayEvaluado = new Array()) {
     impares.sort((a, b) => {
       return a - b;
     });
-
     return [pares, impares];
   } else {
-    return ["El array no tiene elementos", "El array no tiene elementos"];
+    return ["", ""];
   }
 }
