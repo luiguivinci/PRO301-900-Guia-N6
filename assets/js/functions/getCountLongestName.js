@@ -4,9 +4,10 @@
  * @returns {Int}
  */
 function getCountLongestName(arrayEvaluado = "") {
-  if (Array.isArray(arrayEvaluado)) {
+  if (arrayEvaluado !== "") {
+    let arrayTratado = arrayEvaluado.split(",");
     let numeroMayor = 0;
-    arrayEvaluado.forEach((nombre) => {
+    arrayTratado.forEach((nombre) => {
       numeroMayor = nombre.length > numeroMayor ? nombre.length : numeroMayor;
     });
     return numeroMayor === 0 ? "No hay nombres para evaluar" : numeroMayor;

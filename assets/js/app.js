@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const datosParte1 = [5, 7, 1, 3, 9, 2, 56, 23, 45, 12, 67, 23, 4, 8];
   const datosParte2 = [5, 7, 1, 3, 9, 2, 56, 23, 45, 12, 67, 23, 4, 8];
   const datosParte3 = ["margarita", "sara", "karina", "mario"];
+  const datosParte4 = ["margarita", "sara", "karina", "mario"];
 
   // Declaración de variables que capturan inputs
   const inputNumeroMayor1 = document.getElementById("inputNumeroMayor1");
@@ -11,8 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputParImpar1 = document.getElementById("inputParImpar1");
   inputParImpar1.value = datosParte2;
 
-  const longitudNombres1 = document.getElementById("inputLongitudNombres1");
-  longitudNombres1.value = datosParte3;
+  const inputLongitudNombres1 = document.getElementById(
+    "inputLongitudNombres1"
+  );
+  inputLongitudNombres1.value = datosParte3;
+
+  const inputTratamientoNombres1 = document.getElementById(
+    "inputTratamientoNombres1"
+  );
+  inputTratamientoNombres1.value = datosParte4;
 
   //
   // Declaración de variables que capturan botones
@@ -24,6 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const btnLongitudNombres1 = document.getElementById("btnLongitudNombres1");
 
+  const btnTratamientoNombres1 = document.getElementById(
+    "btnTratamientoNombres1"
+  );
+
   //
   // Declaración de variables que controlan outputs
   const outputNumeroMayor1 = document.getElementById("outputNumeroMayor1");
@@ -32,6 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const outputLongitudNombres1 = document.getElementById(
     "outputLongitudNombres1"
+  );
+
+  const outputTratamientoNombres1 = document.getElementById(
+    "outputTratamientoNombres1"
   );
 
   //
@@ -54,10 +70,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   btnLongitudNombres1.addEventListener("click", () => {
-    if (longitudNombres1 !== "") {
-      let input = longitudNombres1.value.split(",");
+    if (inputLongitudNombres1 !== "") {
+      let input = inputLongitudNombres1.value;
       const output = getCountLongestName(input);
       outputLongitudNombres1.value = output;
+    }
+  });
+
+  btnTratamientoNombres1.addEventListener("click", () => {
+    if (inputTratamientoNombres1 !== "") {
+      let input = inputTratamientoNombres1.value;
+      const output = getTreatmentArrayName(input);
+      outputTratamientoNombres1.innerHTML =
+        input !== ""
+          ? printListTreatmentArrayName(output)
+          : "No hay nombres para tratar";
     }
   });
 });
